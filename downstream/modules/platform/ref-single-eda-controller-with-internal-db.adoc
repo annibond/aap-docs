@@ -7,17 +7,23 @@ Use this example to populate the inventory file to install {EDAcontroller}. This
 
 [IMPORTANT]
 ====
-{ControllerNameStart} must be installed before you populate the inventory file with the following {EDAName} variables.
+This scenario requires a minimum of {ControllerName} 2.4 for successful deployment of {EDAcontroller}.
 ====
 
 [IMPORTANT]
 ====
 {EDAcontroller} must be installed on a separate server and cannot be installed on the same host as {HubName} and {ControllerName}.
 ====
+
+
 -----
 # Automation EDA Controller Configuration
 #
 
+[automationedacontroller]
+automationedacontroller.example.com ansible_connection=local
+
+[all:vars]
 automationedacontroller_admin_password='<eda-password>'
 
 automationedacontroller_pg_host=''
@@ -28,7 +34,7 @@ automationedacontroller_pg_username='automationedacontroller'
 automationedacontroller_pg_password='<password>'
 
 # The full routable URL used by EDA to connect to a controller host.
-# This URL is required if there is no Automation Controller configured
+# This URL is required if there is no automation controller configured
 # in inventory.
 #
 automation_controller_main_url = 'https://controller.example.com/'
@@ -42,5 +48,5 @@ automationedacontroller_controller_verify_ssl = true
 
 [role="_additional-resources"]
 .Additional resources
-* For more details on {EDAName}, see the link:https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.4/html/getting_started_with_event-driven_ansible_guide/index[Getting Started with Event-Driven Ansible Guide].
+* For more details on {EDAName}, see the link:{BaseURL}/red_hat_ansible_automation_platform/{PlatformVers}/html/getting_started_with_event-driven_ansible_guide/index[Getting Started with Event-Driven Ansible Guide].
 

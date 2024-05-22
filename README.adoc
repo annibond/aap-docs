@@ -8,7 +8,7 @@ This repository also contains content from the former AAP repository in the RedH
 
 ## Contributing
 
-We welcome contributions to the Red Hat Ansible Automation Platform documentation. You can either link:https://github.com/RedHatInsights/red-hat-ansible-automation-platform-documentation/issues[open an issue] for discussion, or submit an update using the steps below. This section describes the workflow and provides resources for Red Hat style and documentation architecture conventions.
+We welcome contributions to the Red Hat Ansible Automation Platform documentation. You can either link:https://github.com/ansible/aap-docs/issues[open an issue] for discussion, or submit an update using the steps below. This section describes the workflow and provides resources for Red Hat style and documentation architecture conventions.
 
 ### Authoring modularly structured documentation
 
@@ -20,15 +20,25 @@ Documentation follows a link:https://redhat-documentation.github.io/modular-docs
 ....
 .
 |
-├── common
 ├── downstream
+│   ├── aap-common
+│   │   ├── assembly-aap-common.adoc
+│   │   ├── external-site-disclaimer.adoc
+│   │   ├── making-open-source-more-inclusive.adoc
+│   │   └── providing-feedback.adoc
+│   ├── archive
+│   │   ├── archived-aap-common
+│   │   ├── archived-assemblies
+│   │   ├── archived-images
+│   │   ├── archived-modules
+│   │   └── archived-titles
 │   ├── assemblies
 │   │   ├── platform-component1
 │   │   └── platform-component2
-│   │        ├── assembly-title-1.adoc
-│   │        ├── assembly-title-2.adoc
-│   │        └── modules -> ../modules/
+│   │       ├── assembly-title-1.adoc
+│   │       └── assembly-title-2.adoc
 │   ├── attributes
+│   │   └── attributes.adoc
 │   ├── images
 │   │   ├── image-1.png
 │   │   └── image-2.png
@@ -37,32 +47,37 @@ Documentation follows a link:https://redhat-documentation.github.io/modular-docs
 │   │   └── platform-component2
 │   │       ├── module-title-1.adoc
 │   │       └── module-title-2.adoc
+|   ├── snippets
+|   ├── templates
 |   ├── titles
 │   │   ├── platform-component1
 │   │   └── platform-component2
 │   │        ├── title-1.adoc
-│   │        ├── title-2.adoc
-│   │        └── modules -> ../modules/
-├── release-notes
+│   │        └── title-2.adoc
+├── titles/release-notes-gcp
+├── LICENSE.txt
 └── README.adoc
+
 ....
 
-Top-level directories are:
-
-* `common`: Contains modules and attributes that are shared across Red Hat Ansible Automation branches.
-You should modify content in the `common` folder on the `main` branch only.
+The top-level directories are:
 
 * `downstream`: Contains Red Hat Ansible Automation Platform modules, assemblies, and titles in these sub-folders:
 
-** `attributes`: A common directory for attribute files.
+** `aap-common`: Contains modules and attributes that are shared across Red Hat Ansible Automation branches.
+You should modify content in the `common` folder on the `main` branch only.
+** `archive`: A directory for archived files and images.
 ** `assemblies`: A directory for all assemblies, each in its own AsciiDoc file.
 Assemblies are collections of modules linked together.
 Platform assemblies are grouped by component.
+** `attributes`: A common directory for attribute files.
 ** `images`: A directory for all images and other digital content.
 ** `modules`: A directory for all modules, each one in its own AsciiDoc file.
 Platform modules are grouped by component.
+** `snippets`: A directory for all snippets created.
+** `templates`: A directory for templates used by controller, hub, and operator. 
 ** `titles`: A directory for titles (information units, e.g, install guide, user guide).
-Contains `master.adoc` files that and symbolic links to the `assemblies` and `modules` directories.
+Contains `master.adoc` files and symbolic links to the `assemblies` and `modules` directories.
 Platform titles are grouped by component or feature.
 
 * `release-notes`: Contains release note content.
@@ -88,7 +103,7 @@ The first time you contribute:
 
 . Fork the repository.
 
-   From the main page of the link:https://github.com/RedHatInsights/red-hat-ansible-automation-platform-documentation[GitHub repository], click btn[Fork] in the upper right corner.
+   From the main page of the link:https://github.com/ansible/aap-docs[GitHub repository], click btn[Fork] in the upper right corner.
 
 . Clone the forked repository locally.
 
@@ -103,7 +118,7 @@ $ git clone git@github.com:<username>/red-hat-ansible-automation-platform-docume
 . Set the upstream remote repository.
 
  -----
- $ git remote add -f upstream git@github.com:RedHatInsights/red-hat-ansible-automation-platform-documentation.git
+ $ git remote add -f upstream git@github.com:ansible/aap-docs.git
  -----
 
 To submit an update:
@@ -114,10 +129,10 @@ To submit an update:
    $ git fetch upstream
    -----
 
-. Check out a branch from upstream/master
+. Check out a branch from upstream/main
 
 -----
-$ git checkout -b <new-branch> upstream/master
+$ git checkout -b <new-branch> upstream/main
 -----
 
 . Make your edits.
@@ -144,7 +159,7 @@ $ git push origin HEAD
 
 . Open a pull request.
 
-   Typically the previous command gives the URL to open a pull request. If not, you can open one from the link:https://github.com/RedHatInsights/red-hat-ansible-automation-platform-documentation/pulls[Pull requests] tab of the GitHub UI.
+   Typically the previous command gives the URL to open a pull request. If not, you can open one from the link:https://github.com/ansible/aap-docs/pulls[Pull requests] tab of the GitHub UI.
 
 After you submit a pull request, it will be reviewed by members of this project.
 

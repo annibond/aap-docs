@@ -4,38 +4,39 @@
 
 .Procedure
 
-. Log in to RH SSO as admin.
-
-NOTE: If you have an existing realm you may go to step 4.
+. Log in to {RHSSOshort} as admin.
 +
-.Add Realm.
+NOTE: If you have an existing realm you may go to step 6.
++
+. Add Realm.
 
 . Enter Name and click btn:[Create].
 
-. Click the Clients tab.
+. Click the *Clients* tab.
 
-. Enter Name and Click btn:[Create].
+. Enter name and click btn:[Create].
 
-. From the Client Protocol menu, select menu:openid-connect.
-. From the Access Type menu, select menu:confidential.
+. From the navigation panel, select menu:Client Protocol[openid-connect].
 
-. In the Root URL field, enter your AAP server IP or hostname.
+. From the navigation panel, select menu:Access Type[confidential].
 
-. In the Valid Redirect field, enter your AAP server IP or hostname. If not in production, set to *.
+. In the *Root URL* field, enter your {PlatformNameShort} server IP or hostname.
 
-. In the Web origins field, enter your AAP server IP or hostname. If not in production, set to *.
+. In the *Valid Redirect* field, enter your {PlatformNameShort} server IP or hostname. If not in production, set to *.
 
-. Click on *Credentials* tab.
-
-NOTE: Keep track of Secret to be used later.
+. In the Web origins field, enter your {PlatformNameShort} server IP or hostname. If not in production, set to *.
 +
-. Log in to Ansible Automation Platform Controller as admin.
-. Click on Settings.
-. Click on Generic OIDC settings.
+. Click the *Credentials* tab.
++
+NOTE: Keep track of the Secret to be used later.
++
+. Log in to {PlatformNameShort} Controller as admin.
+. From the navigation panel, select {MenuAEAdminSettings}.
+. Select *Generic OIDC settings* from the list of *Authentication* options.
 . Click btn:[Edit].
-. In the OIDC Key field, enter the name of your client from step 4.
-. In the OIDC Secret field, enter the secret saved from step 7.
-. In the OIDC Provider URL field, enter your keycloak server URL and port.
+. In the *OIDC Key* field, enter the name of your client from step 5.
+. In the *OIDC Secret* field, enter the secret saved from step 8.
+. In the *OIDC Provider URL* field, enter your keycloak server URL and port.
 . Click btn:[Save].
 
-OIDC should appear as an option for login. Click btn:[Sign in with OIDC] and it will redirect you to the SSO server for login and redirection back to AAP. 
+OIDC should appear as an option for login. Click btn:[Sign in with OIDC] and it will redirect you to the SSO server for login and redirection back to {PlatformNameShort}.
